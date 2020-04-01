@@ -1,4 +1,4 @@
-# WVD Deploy PS Script
+# WVD Deploy | Host PS Script
 
 The framework for this script were sourced from [Azure/RDS-Templates/wvd-sh/Create and provision WVD host pool/](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/Create%20and%20provision%20WVD%20host%20pool)
 
