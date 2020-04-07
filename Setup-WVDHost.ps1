@@ -40,12 +40,6 @@ param(
     [Parameter(mandatory = $true)]
     [string]$TenantAdminPassword,
 
-    [Parameter(mandatory = $true)]
-    [string]$localAdminUserName,
-
-    [Parameter(mandatory = $true)]
-    [string]$localAdminPassword,
-
     [Parameter(mandatory = $false)]
     [string]$isServicePrincipal = "False",
 
@@ -111,7 +105,7 @@ Write-Log -Message "Downloaded FSLogix"
 Expand-Archive "$WVDDeployBasePath\FSLogix_Apps.zip" -DestinationPath "$WVDDeployFslgxPath" -ErrorAction SilentlyContinue
 Remove-Item "$WVDDeployBasePath\FSLogix_Apps.zip"
 $AssetendDTM = (Get-Date)
-Write-Log -Message "Asset Download Time: $(($endDTM-$startDTM).totalseconds) seconds"
+Write-Log -Message "Asset Download Time: $(($AssetendDTM-$AssetstartDTM).totalseconds) seconds"
 
 # Checking if RDInfragent is registered or not in rdsh vm
 $CheckRegistry = Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent" -ErrorAction SilentlyContinue
@@ -143,8 +137,6 @@ if (!$CheckRegistry) {
     #Build Credential Variables
     $Securepass = ConvertTo-SecureString -String $TenantAdminPassword -AsPlainText -Force
     $Credentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList ($TenantAdminUPN, $Securepass)
-    $AdminSecurepass = ConvertTo-SecureString -String $localAdminPassword -AsPlainText -Force
-    $adminCredentials = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList ($localAdminUserName, $AdminSecurepass)
 
     # Getting fqdn of rdsh vm
     $SessionHostName = (Get-WmiObject win32_computersystem).DNSHostName + "." + (Get-WmiObject win32_computersystem).Domain
