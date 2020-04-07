@@ -1,4 +1,4 @@
-# WVD Deploy | Host PS Script
+# WVD Deploy | Setup-WVDHost.ps1 Script
 
 This powershell script performs the operations nessecary to prepare and join a domain joined Azure VM to a [WVD Host Pool](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview). It functions as a standalone script and downloads all of the nessecary tools and applications from public endpoints to ensure that the most current version is being used.
 
