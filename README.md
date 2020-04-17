@@ -2,6 +2,12 @@
 
 This powershell script performs the operations nessecary to prepare and join a domain joined Azure VM to a [WVD Host Pool](https://docs.microsoft.com/en-us/azure/virtual-desktop/overview). It functions as a standalone script and downloads all of the nessecary tools and applications from public endpoints to ensure that the most current version is being used.
 
+The following items will be installed on the server-
+
+* Microsoft.RDInfra.RDAgentBootLoader.Installer-x64.msi
+* Microsoft.RDInfra.RDAgent.Installer-x64.msi
+* FSLogixAppsSetup.exe (no GPOs or settings configured) 
+
 The framework for this script were sourced from [Azure/RDS-Templates/wvd-sh/Create and provision WVD host pool/](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/Create%20and%20provision%20WVD%20host%20pool)
 
 
